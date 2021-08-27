@@ -78,10 +78,8 @@ protected:
 				{
 					auto start_sclub = chrono::steady_clock::now();  // begin to compute the time for solving the separtion problem
 					
-					vector <long> sclb_index;
-					vector <long> HS;
-					HS = HeuristicAndPreprocess(induced_g, s);   // find the heuristic s-club in the interdicted graph
-					sclb_index = ICUT(induced_g, s, HS);         // find maximum s-club in the interdicted graph					
+					vector <long> HS = HeuristicAndPreprocess(induced_g, s);   // find the heuristic s-club in the interdicted graph
+					vector <long> sclb_index = ICUT(induced_g, s, HS);         // find maximum s-club in the interdicted graph					
 					
 					chrono::duration <double> duration_sclb = chrono::steady_clock::now() - start_sclub;   // duration of solving the separation
 					SclubTime += duration_sclb.count();
@@ -104,7 +102,7 @@ protected:
 						vector<long> Hereditary_set;
 						vector<long> Critical_set_original;
 						
-						//find critical set
+						//find critical set by finding the minimum LCDS
 						auto start_lcds = chrono::steady_clock::now();
 						long r = 1;
 						Critical_set = solveMCDS(induced_kclb, s);
@@ -212,7 +210,7 @@ int main(int argc, char *argv[])
 			}
 			if (star_cut[u] == false)
 			{
-				model_Master.addConstr(theta >= ((1 - X_Master[u]) * (grph.degree[u] + 1)) - neighbors_u);
+				model_Master.addConstr(theta >= ((1 - X_Master[u]) * (grph.degree[u] + 1)) - neighbors_u);   // add constraint for star with center u
 				star_cut[u] = true;
 			}
 			for (long j = 0; j < grph.degree[u]; j++)
@@ -226,7 +224,7 @@ int main(int argc, char *argv[])
 					}
 					if (star_cut[v] == false)
 					{
-						model_Master.addConstr(theta >= ((1 - X_Master[v]) * (grph.degree[v] + 1)) - neighbors_v);
+						model_Master.addConstr(theta >= ((1 - X_Master[v]) * (grph.degree[v] + 1)) - neighbors_v);   // add constraint for star with center v
 						star_cut[v] = true;
 					}
 					common_vertices = grph.CommonNeighborsList(u, v);
@@ -235,6 +233,7 @@ int main(int argc, char *argv[])
 						intersection_of_uv += X_Master[common_vertices[i]];
 					}
 					edge_size = grph.degree[u] + grph.degree[v] - common_vertices.size();
+					// add constraint for edge (u,v):
 					model_Master.addConstr(theta >= ((1 - X_Master[u] - X_Master[v]) * edge_size) - neighbors_u - neighbors_v  + intersection_of_uv);
 					counter++;
 					neighbors_v = 0;
