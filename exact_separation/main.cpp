@@ -76,7 +76,6 @@ protected:
 				// solve the separation only if the interdicted graph has at least 2 vertices
 				if (induced_g.n >= 2)
 				{
-
 					auto start_sclub = chrono::steady_clock::now();  // begin to compute the time for solving the separtion problem
 					
 					vector <long> sclb_index;
