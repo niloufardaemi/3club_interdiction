@@ -1,4 +1,4 @@
-# Code for interdicting the maximum 3-club in a graph
+# Code for interdicting the maximum 2-club in a graph
 
 This code accompanies the paper "Interdicting Low-Diameter Cohesive Subgroups in
 Large-Scale Social Networks" and is written in C++. If you wish to use or cite this code, please cite the paper:
@@ -20,15 +20,14 @@ This repository includes two folders:
 2. heuristic_separation: used to first try heuristic approaches to solve the separation problem and solving it to optimality only if needed.
 
 
-
 # Compiling the code
 
 The following steps show how to compile and run the code to find the maximum 2-club in the interdicted graph in a Windows environment.
 
 1. Download or clone the repository to your machine.
 2. Build the project.
-3. In the command prompt, change the directory to the one that the project is stored.
-4. In the command promp, type the following  command with space instead of each cooma: project name.exe, dataset format (dimacs/snap_d), dataset directory,\, dataset name, value of alpha, and hit enter.
+3. In the command prompt, change the directory to the one that the project is stored and type the following command with space instead of each comma: project name.exe, dataset format (dimacs/snap_d), dataset directory/, dataset name, value of alpha, and hit enter.
+
 
 
 # Terms and Use:
@@ -60,5 +59,5 @@ SOFTWARE.
 # Acknowledgments
 
 We would like to thank Austin Buchanan, Hosseinali Salemi and Hamidreza Validi for providing
-us the codes used in Salemi and Buchanan 2020, Validi and Buchanan 2020 (https://link.springer.com/article/10.1007/s12532-020-00175-6, https://pubsonline.informs.org/doi/abs/10.1287/ijoc.2019.0914) and freely offering their help
-to integrate it with our code. All the files except the main.cpp in our repository are part of therir codes with some modifications. Their codes in the original form respectively availble at https://github.com/halisalemi/ParsimoniousKClub and https://github.com/hamidrezavalidi/The-Optimal-Design-of-Low-Latency-Virtual-Backbones .
+us the codes used in [Salemi and Buchanan 2020](https://link.springer.com/article/10.1007/s12532-020-00175-6) , and [Validi and Buchanan 2020](https://pubsonline.informs.org/doi/abs/10.1287/ijoc.2019.0914) and freely offering their help
+to integrate it with our code. All the files in our repository except the main.cpp are part of therir codes with some modifications. Their codes in the original form respectively availble at https://github.com/halisalemi/ParsimoniousKClub and https://github.com/hamidrezavalidi/The-Optimal-Design-of-Low-Latency-Virtual-Backbones .
