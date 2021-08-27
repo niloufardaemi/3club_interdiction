@@ -72,19 +72,7 @@ void LazyConstraints3::callback() {
 				}
 			}
 
-			if (!IsLatencyConstrainedCDSweighted(g1, selectedVertices, s1, W1)) // If the ``solution'' is not really a CDS, then add a new vertex cut constraint to the problem. (Note: it is enough to see if it is connected, since our initial constraints enforce that it is dominating.
-			{
-				vector<long> minimalCut = MinimalizeWeighted(g1, selectedVertices, s1, W1);
-				long v;
-				GRBLinExpr expr = 0;
-				for (long i = 0; i < minimalCut.size(); i++)
-				{
-					v = minimalCut[i];
-					expr += vars[v];
-				}
-				addLazy(expr >= 1);
-				numLazyCuts++;
-			}
+			
 			TotalCallbackTime += (double)(clock() - start) / CLOCKS_PER_SEC;
 			delete[] x;
 		}
