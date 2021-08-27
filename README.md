@@ -59,5 +59,5 @@ SOFTWARE.
 # Acknowledgments
 
 We would like to thank Austin Buchanan, Hosseinali Salemi and Hamidreza Validi for providing
-us the codes used in [Salemi and Buchanan 2020](https://link.springer.com/article/10.1007/s12532-020-00175-6) , and [Validi and Buchanan 2020](https://pubsonline.informs.org/doi/abs/10.1287/ijoc.2019.0914) and freely offering their help
-to integrate it with our code. All the files in our repository except the main.cpp are part of therir codes with some modifications. Their codes in the original form respectively availble at https://github.com/halisalemi/ParsimoniousKClub and https://github.com/hamidrezavalidi/The-Optimal-Design-of-Low-Latency-Virtual-Backbones .
+us the codes used in [Salemi and Buchanan 2020](https://link.springer.com/article/10.1007/s12532-020-00175-6) and [Validi and Buchanan 2020](https://pubsonline.informs.org/doi/abs/10.1287/ijoc.2019.0914) and freely offering their help
+to integrate it with our code. All the files in our repository except the main.cpp are part of therir codes with some modifications. Their codes in the original form respectively availble at [1](https://github.com/halisalemi/ParsimoniousKClub) and [2](https://github.com/hamidrezavalidi/The-Optimal-Design-of-Low-Latency-Virtual-Backbones).
